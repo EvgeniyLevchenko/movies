@@ -1,24 +1,275 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nI9-xk-ewV">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Segment View Controller-->
+        <scene sceneID="3qv-f8-J6s">
+            <objects>
+                <viewController id="hWs-Rz-MOL" customClass="SegmentViewController" customModule="movietest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="d8x-00-SbO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lzf-Ey-bUX">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oXl-4U-K9l"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lzf-Ey-bUX" firstAttribute="leading" secondItem="oXl-4U-K9l" secondAttribute="leading" id="Kmv-P6-3wA"/>
+                            <constraint firstItem="oXl-4U-K9l" firstAttribute="trailing" secondItem="lzf-Ey-bUX" secondAttribute="trailing" id="cVs-Gu-yT8"/>
+                            <constraint firstItem="oXl-4U-K9l" firstAttribute="bottom" secondItem="lzf-Ey-bUX" secondAttribute="bottom" id="hpl-WN-4fx"/>
+                            <constraint firstItem="lzf-Ey-bUX" firstAttribute="top" secondItem="oXl-4U-K9l" secondAttribute="top" id="xv6-Ry-fOw"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="kht-ii-mdZ">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Genres" id="67l-dX-jey">
+                            <color key="tintColor" systemColor="systemYellowColor"/>
+                        </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="bWk-aj-ZZ2">
+                            <rect key="frame" x="132.5" y="5.5" width="149" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segments>
+                                <segment title="Featured"/>
+                                <segment title="Charts"/>
+                            </segments>
+                            <connections>
+                                <action selector="segmentValueChanged:" destination="hWs-Rz-MOL" eventType="valueChanged" id="1bV-Ng-ec1"/>
+                            </connections>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="uGZ-PA-Jsf">
+                            <color key="tintColor" systemColor="systemYellowColor"/>
+                            <connections>
+                                <action selector="searchButtonTapped:" destination="hWs-Rz-MOL" id="VbS-oe-OgB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="containerView" destination="lzf-Ey-bUX" id="vBc-yj-Ycu"/>
+                        <outlet property="moviesSegmentedControl" destination="bWk-aj-ZZ2" id="dNi-oX-tKO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5NX-MB-FZZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657.9710144927537" y="-462.05357142857139"/>
+        </scene>
+        <!--Featured Movies View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="featuredMoviesViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="FeaturedMoviesViewController" customModule="movietest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Hc8-qQ-Frr">
+                                <rect key="frame" x="0.0" y="263" width="414" height="599"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oQ2-1L-5KT">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="50" height="15"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCollectionViewCell" id="UVx-zO-ZPd">
+                                        <rect key="frame" x="0.0" y="15" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9nQ-rI-JYw">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="moviesHeader" id="b1P-m7-01Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="15"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </collectionReusableView>
+                            </collectionView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DIs-Kz-D6q">
+                                <rect key="frame" x="0.0" y="59" width="414" height="204"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="204" id="yA4-36-dIF"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hTS-MP-3Rb">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="moviePosterCollectionViewCell" id="sAR-vX-zZK">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YF5-4C-zXC">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Hc8-qQ-Frr" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7Jp-Pi-b5V"/>
+                            <constraint firstItem="Hc8-qQ-Frr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RMk-79-TBK"/>
+                            <constraint firstItem="Hc8-qQ-Frr" firstAttribute="top" secondItem="DIs-Kz-D6q" secondAttribute="bottom" id="ceJ-15-kOs"/>
+                            <constraint firstItem="Hc8-qQ-Frr" firstAttribute="top" secondItem="DIs-Kz-D6q" secondAttribute="bottom" id="ehC-8n-vCI"/>
+                            <constraint firstItem="Hc8-qQ-Frr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="jen-OH-a1j"/>
+                            <constraint firstItem="DIs-Kz-D6q" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="sUf-Rt-mqV"/>
+                            <constraint firstItem="DIs-Kz-D6q" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xco-nm-fPW"/>
+                            <constraint firstItem="DIs-Kz-D6q" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="15" id="zcd-iN-AbL"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="pKR-VV-E9c">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Genres" id="46y-OA-ffW">
+                            <color key="tintColor" systemColor="systemYellowColor"/>
+                        </barButtonItem>
+                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="N7x-hL-bBX">
+                            <rect key="frame" x="132.5" y="5.5" width="149" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <segments>
+                                <segment title="Featured"/>
+                                <segment title="Charts"/>
+                            </segments>
+                        </segmentedControl>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="magnifyingglass" catalog="system" id="Yyz-2h-BiN">
+                            <color key="tintColor" systemColor="systemYellowColor"/>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="moviesCollectionView" destination="Hc8-qQ-Frr" id="vRO-mp-CJy"/>
+                        <outlet property="postersCollectionView" destination="DIs-Kz-D6q" id="Vh7-Ls-ozl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1195.6521739130435" y="209.59821428571428"/>
+        </scene>
+        <!--Charts View Controller-->
+        <scene sceneID="h9j-re-sB2">
+            <objects>
+                <viewController storyboardIdentifier="chartsViewController" id="cVY-Lu-95z" customClass="ChartsViewController" customModule="movietest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wLE-OZ-m6G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hbm-fg-Fph">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Bx-GY-Kq9"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9Bx-GY-Kq9" firstAttribute="trailing" secondItem="Hbm-fg-Fph" secondAttribute="trailing" id="5by-jS-rGh"/>
+                            <constraint firstItem="Hbm-fg-Fph" firstAttribute="top" secondItem="9Bx-GY-Kq9" secondAttribute="top" id="Re2-bf-btH"/>
+                            <constraint firstItem="Hbm-fg-Fph" firstAttribute="leading" secondItem="9Bx-GY-Kq9" secondAttribute="leading" id="dWN-GN-f7o"/>
+                            <constraint firstItem="9Bx-GY-Kq9" firstAttribute="bottom" secondItem="Hbm-fg-Fph" secondAttribute="bottom" id="fHO-bB-teC"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="chartsTableView" destination="Hbm-fg-Fph" id="HtJ-bR-YBc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="erp-Nf-b4N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2152" y="210"/>
+        </scene>
+        <!--Search Results View Controller-->
+        <scene sceneID="SFH-6l-hNV">
+            <objects>
+                <viewController storyboardIdentifier="searchResultsViewController" id="AiN-dW-oNU" customClass="SearchResultsViewController" customModule="movietest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ilc-E4-xPp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Rlc-0N-6gD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="veu-sY-Ph1">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="movieCollectionViewCell" id="a9R-js-pDG">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="YjU-8A-TXk">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Lsm-BE-XXL"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Rlc-0N-6gD" firstAttribute="top" secondItem="Lsm-BE-XXL" secondAttribute="top" id="G2o-KK-jz6"/>
+                            <constraint firstItem="Lsm-BE-XXL" firstAttribute="bottom" secondItem="Rlc-0N-6gD" secondAttribute="bottom" id="TqF-ht-Cwa"/>
+                            <constraint firstItem="Lsm-BE-XXL" firstAttribute="trailing" secondItem="Rlc-0N-6gD" secondAttribute="trailing" id="Z4d-mG-EIM"/>
+                            <constraint firstItem="Rlc-0N-6gD" firstAttribute="leading" secondItem="Lsm-BE-XXL" secondAttribute="leading" id="ay8-do-1FI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="moviesCollectionView" destination="Rlc-0N-6gD" id="8hc-lH-mJs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FG4-4g-a5V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3119" y="210"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="85Z-RR-Rzt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nI9-xk-ewV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="R8c-wl-FyF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hWs-Rz-MOL" kind="relationship" relationship="rootViewController" id="dMh-Ak-JKD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HDZ-qe-jsx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752" y="-462"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
